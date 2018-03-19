@@ -16,12 +16,15 @@ import random
 ap = argparse.ArgumentParser()
 ap.add_argument("-p", "--shape-predictor", required=True,
 	help="path to facial landmark predictor")
+
 ap.add_argument("-d", "--image_dir", required=True,
 	help="path to input directory containing all images")
+
 ap.add_argument("-w", "--face-width", required=True,help="face cropping size")
 
 ap.add_argument("-o", "--output_dir", required=True,
 	help="path to output directory of images")
+
 args = vars(ap.parse_args())
 
 # initialize dlib's face detector (HOG-based) and then create
@@ -37,7 +40,7 @@ for files in types:
 	
 
 path = args["output_dir"]
-if not (os.path.isdir(path)):
+if not os.path.isdir(os.path.join(os.getcwd(),path)):
 	os.makedirs(path)
 
 for idx, i in enumerate(users_images):
