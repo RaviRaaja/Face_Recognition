@@ -15,9 +15,12 @@ ap.add_argument("-i", "--image_dir", required=True,
 	help="path to input directory of images")
 ap.add_argument("-t", "--threshold", type=float, default=20.0,
 	help="focus measures that fall below this value will be considered 'blurry'")
+
+ap.add_argument("-o", "--output_dir", required=True,
+	help="path to output directory of images")
 args = vars(ap.parse_args())
 
-path = "/home/stan/face_landmark_detection/no_blur_"
+path = args["output_dir"]
 if not (os.path.isdir(path)):
 	os.makedirs(path)
 

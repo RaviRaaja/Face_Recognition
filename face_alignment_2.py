@@ -19,6 +19,9 @@ ap.add_argument("-p", "--shape-predictor", required=True,
 ap.add_argument("-d", "--image_dir", required=True,
 	help="path to input directory containing all images")
 ap.add_argument("-w", "--face-width", required=True,help="face cropping size")
+
+ap.add_argument("-o", "--output_dir", required=True,
+	help="path to output directory of images")
 args = vars(ap.parse_args())
 
 # initialize dlib's face detector (HOG-based) and then create
@@ -33,8 +36,7 @@ for files in types:
 	users_images.extend(glob.glob(os.path.join(args["image_dir"],files)))
 	
 
-
-path = "/home/stan/face_landmark_detection/cropped"
+path = args["output_dir"]
 if not (os.path.isdir(path)):
 	os.makedirs(path)
 
