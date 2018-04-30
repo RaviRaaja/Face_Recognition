@@ -1,0 +1,14 @@
+pylab
+networkx
+tensorflow>=1.2
+scipy
+scikit-learn
+opencv-python
+h5py
+matplotlib
+Pillow
+requests
+psutil
+imutils
+dlib
+rawkit
